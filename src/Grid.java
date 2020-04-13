@@ -65,6 +65,10 @@ public class Grid {
 
     }
 
+    public void mark_blank(int row, int col) {
+        this.nodes[row][col].setVal("1");
+    }
+
     public void mark_start(int row, int col) {
         this.startNode.setVal("1");
         this.startNode = this.nodes[row][col];

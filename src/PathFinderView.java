@@ -119,19 +119,19 @@ public class PathFinderView extends Application {
                         buttons[j][i].setStyle(null);
                         break;
                     case "X":
-                        buttons[j][i].setStyle("-fx-background-color:#43464b; -fx-border-width: 0.3px; -fx-border-color:WHITE");
+                        buttons[j][i].setStyle("-fx-background-color:#43464b; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                         break;
                     case "S":
-                        buttons[j][i].setStyle("-fx-background-color:#3CB371; -fx-border-width: 0.3px; -fx-border-color:WHITE");
+                        buttons[j][i].setStyle("-fx-background-color:#3CB371; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                         break;
                     case "E":
-                        buttons[j][i].setStyle("-fx-background-color:#CD5C5C; -fx-border-width: 0.3px; -fx-border-color:WHITE");
+                        buttons[j][i].setStyle("-fx-background-color:#CD5C5C; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                         break;
                     case "O":
-                        buttons[j][i].setStyle("-fx-background-color:#4682B4; -fx-border-width: 0.3px; -fx-border-color:WHITE");
+                        buttons[j][i].setStyle("-fx-background-color:#4682B4; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                         break;
                     case "V":
-                        buttons[j][i].setStyle("-fx-background-color:#87CEFA; -fx-border-width: 0.3px; -fx-border-color:WHITE");
+                        buttons[j][i].setStyle("-fx-background-color:#87CEFA; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                 }
             }
         }

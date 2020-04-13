@@ -29,14 +29,31 @@ public class Controller {
 
         switch (selectedValue) {
             case "Wall":
-                grid.mark_wall(row, col);
+                if (grid.getNodes()[row][col].getVal().equals("X")) {
+                    grid.mark_blank(row, col);
+                }
+                else if (grid.getNodes()[row][col].getVal().equals("S") || grid.getNodes()[row][col].getVal().equals("E")){
+                    break;
+                }
+                else {
+                    grid.mark_wall(row, col);
+                }
                 break;
             case "Start":
-                grid.mark_start(row, col);
+                if (grid.getNodes()[row][col].getVal().equals("E")) {
+                    break;
+                }
+                else {
+                    grid.mark_start(row, col);
+                }
                 break;
             case "End":
-                grid.mark_end(row, col);
-                break;
+                if (grid.getNodes()[row][col].getVal().equals("S")) {
+                    break;
+                }
+                else {
+                    grid.mark_end(row, col);
+                }
         }
 
 //        grid.print_grid();
