@@ -1,10 +1,7 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -39,13 +36,13 @@ public class PathFinderView extends Application {
 
         primaryStage.setTitle("Path-finding Visualizer");
 
-        primaryStage.setHeight(650);
-        primaryStage.setWidth(770);
+        primaryStage.setHeight(750);
+        primaryStage.setWidth(950);
 
         BorderPane border = new BorderPane();
 
         GridPane grid = new GridPane();
-        grid.setPrefSize(605,600);
+        grid.setPrefSize(700,700);
 
 
         // Set constraints for grid button sizes
@@ -72,15 +69,19 @@ public class PathFinderView extends Application {
         startRb.setToggleGroup(tg);
         endRb.setToggleGroup(tg);
 
-        // Controller testing
+        CheckBox traversalCheck = new CheckBox("Show traversal path");
+        traversalCheck.setPadding(new Insets(50, 10, 10, 5));
+        traversalCheck.setOnAction(event -> update(buttons, matrix, traversalCheck));
+
         Button solveButton = new Button("Solve");
         solveButton.setOnAction(event -> {controller.onSolveClick(matrix);
-                                        update(buttons, matrix);});
+                                        update(buttons, matrix, traversalCheck);});
 
 
         Button refreshButton = new Button("Refresh");
         refreshButton.setOnAction(event -> {controller.onRefreshClick(matrix, rl, cl);
-                                            update(buttons, matrix);});
+                                            update(buttons, matrix, traversalCheck);});
+
 
         // Create grid buttons
         for (int r=0; r<rl; r++) {
@@ -93,12 +94,12 @@ public class PathFinderView extends Application {
                 int tempR = r;
                 int tempC = c;
                 button.setOnAction(event -> {controller.onclick(button, tg, matrix, tempC, tempR);
-                                            update(buttons, matrix);});
+                                            update(buttons, matrix, traversalCheck);});
                 grid.add(button, r, c);
             }
         }
 
-        update(buttons, matrix);
+        update(buttons, matrix, traversalCheck);
 
         VBox vbox = new VBox();
         vbox.setSpacing(8);
@@ -108,6 +109,7 @@ public class PathFinderView extends Application {
         vbox.getChildren().add(endRb);
         vbox.getChildren().add(solveButton);
         vbox.getChildren().add(refreshButton);
+        vbox.getChildren().add(traversalCheck);
 
         border.setRight(vbox);
 
@@ -118,7 +120,7 @@ public class PathFinderView extends Application {
         primaryStage.show();
     }
 
-    public void update(Button[][] buttons, Grid grid) {
+    public void update(Button[][] buttons, Grid grid, CheckBox cb) {
         for (int i=0; i<grid.getRl(); i++) {
             for (int j=0; j<grid.getCl(); j++) {
                 switch (grid.getNodes()[i][j].getVal()) {
@@ -138,8 +140,10 @@ public class PathFinderView extends Application {
                         buttons[j][i].setStyle("-fx-background-color:#4682B4; -fx-border-width: 0.3px; -fx-border-color:BLACK");
                         break;
                     case "V":
-                        buttons[j][i].setStyle("-fx-background-color:#87CEFA; -fx-border-width: 0.3px; -fx-border-color:BLACK");
-                        break;
+                        if (cb.isSelected()) {
+                            buttons[j][i].setStyle("-fx-background-color:#87CEFA; -fx-border-width: 0.3px; -fx-border-color:BLACK");
+                            break;
+                        }
                 }
             }
         }

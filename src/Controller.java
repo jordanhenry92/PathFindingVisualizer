@@ -5,7 +5,7 @@ import javafx.scene.control.ToggleGroup;
 public class Controller {
 
     // Runs the BFS algorithm
-    public void onOkClick(Grid grid) {
+    public void onSolveClick(Grid grid) {
         Algorithms algo = new Algorithms();
         algo.find_path_bfs(grid);
         grid.print_grid();
