@@ -25,11 +25,19 @@ public class PathFinderView extends Application {
         System.out.println("Before");
     }
 
+    public void setRl(int rl) {
+        this.rl = rl;
+    }
+
+    public void setCl(int cl) {
+        this.cl = cl;
+    }
+
     // Launches the actual application
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Pathfinding Visualizer");
+        primaryStage.setTitle("Path-finding Visualizer");
 
         primaryStage.setHeight(650);
         primaryStage.setWidth(770);
@@ -53,8 +61,6 @@ public class PathFinderView extends Application {
             cc.setHgrow(Priority.ALWAYS);
             grid.getColumnConstraints().add(cc);
         }
-
-
 
         // Create Radio buttons
         ToggleGroup tg = new ToggleGroup();
@@ -133,12 +139,13 @@ public class PathFinderView extends Application {
                         break;
                     case "V":
                         buttons[j][i].setStyle("-fx-background-color:#87CEFA; -fx-border-width: 0.3px; -fx-border-color:BLACK");
+                        break;
                 }
             }
         }
     }
 
-    // This methods runs after the application is stopped
+    // This method runs after the application is stopped
     @Override
     public void stop() throws Exception {
         System.out.println("After");
