@@ -73,8 +73,8 @@ public class PathFinderView extends Application {
         endRb.setToggleGroup(tg);
 
         // Controller testing
-        Button okButton = new Button("OK");
-        okButton.setOnAction(event -> {controller.onOkClick(matrix);
+        Button solveButton = new Button("Solve");
+        solveButton.setOnAction(event -> {controller.onSolveClick(matrix);
                                         update(buttons, matrix);});
 
 
@@ -106,7 +106,7 @@ public class PathFinderView extends Application {
         vbox.getChildren().add(wallRb);
         vbox.getChildren().add(startRb);
         vbox.getChildren().add(endRb);
-        vbox.getChildren().add(okButton);
+        vbox.getChildren().add(solveButton);
         vbox.getChildren().add(refreshButton);
 
         border.setRight(vbox);
