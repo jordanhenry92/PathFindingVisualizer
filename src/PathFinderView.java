@@ -82,6 +82,7 @@ public class PathFinderView extends Application {
                 Button button = new Button();
                 button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 button.setStyle("-fx-border-width: 0.3px;");
+                button.setPadding(new Insets(0.3));
                 buttons[r][c] = button;
                 int tempR = r;
                 int tempC = c;
