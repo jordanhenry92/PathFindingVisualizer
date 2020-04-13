@@ -27,7 +27,7 @@ The solved grid after clicking the "Solve" button:
 
 Currently the only algorithm implemented (and the one shown above) is Breadth-first search (BFS).
 
-###TODO
+### TODO
 
 - Add functionality to allow the user to change the grid size.
 - Implement different types of algorithms (DFS, A*, etc).
